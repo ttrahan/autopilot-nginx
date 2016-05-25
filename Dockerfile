@@ -37,6 +37,4 @@ COPY nginx.conf.ctmpl /etc/containerpilot/
 
 EXPOSE 80
 
-LINKS consul:consul
-
 ENTRYPOINT /bin/containerpilot -config file:///etc/containerpilot/containerpilot.json nginx -g "daemon off;"
