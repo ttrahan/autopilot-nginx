@@ -1,5 +1,5 @@
 {
-  "consul": "consul:8500",
+  "consul": "72.2.114.55:8500",
   "preStart": "/bin/reload-nginx.sh preStart",
   "logging": {
     "level": "DEBUG",
