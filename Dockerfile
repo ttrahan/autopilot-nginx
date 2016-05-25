@@ -36,3 +36,5 @@ COPY nginx.conf /etc/nginx/nginx.conf
 COPY nginx.conf.ctmpl /etc/containerpilot/
 
 EXPOSE 80
+
+ENTRYPOINT /bin/containerpilot -config file:///etc/containerpilot/containerpilot.json nginx -g "daemon off;"
