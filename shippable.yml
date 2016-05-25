@@ -1,0 +1,28 @@
+# Language setting
+language: node_js
+
+# Version number
+node_js:
+  - 4.3
+
+build:
+  pre_ci:
+    - echo "true"
+
+  pre_ci_boot:
+    image_name: drydock/u14nod
+    image_tag: prod
+    pull: false
+    options: '--privileged=true'
+
+  ci:
+    - docker build -t ttrahan/autopilot-nginx:$BRANCH.$SHIPPABLE_BUILD_NUMBER .
+    - docker push ttrahan/autopilot-nginx:$BRANCH.$SHIPPABLE_BUILD_NUMBER
+
+integrations:
+  hub:
+    - integrationName: "Docker Hub"
+      type: docker
+      branches:
+        only:
+          - master
