@@ -1,5 +1,5 @@
 {
-  "consul": "consul.svc.b71934f2-d224-cd47-fd4b-ef25fd4ee85f.us-east-1.triton.zone:8500",
+  "consul": "$process.env.consulDNS:8500",
   "preStart": "/bin/reload-nginx.sh preStart",
   "logging": {
     "level": "DEBUG",
